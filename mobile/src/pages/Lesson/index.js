@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, ActivityIndicator } from 'react-native';
 import { mocky } from '../../services/mocky';
-import SubjectListItem from './components/SubjectListItem';
-import { Container, Title } from './styles';
+import LessonListItem from './components/LessonListItem';
+import { Container } from './styles';
 
-export default function Main({ navigation }) {
+export default function Lesson({ navigation }) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    mocky.get('/subjects').then(({ data }) => {
+    mocky.get(`/lessons/${navigation.state.params.id}`).then(({ data }) => {
       console.log(navigation);
       setList(data);
     });
-  }, [navigation]);
+  }, [navigation, navigation.state.params.id]);
 
   return (
     <Container>
-      {/* <Title>Matérias</Title> */}
       {list.length === 0 && (
         <ActivityIndicator
           style={{ marginTop: 10 }}
@@ -28,7 +27,7 @@ export default function Main({ navigation }) {
         data={list}
         keyExtractor={item => String(item.id)}
         renderItem={({ item }) => (
-          <SubjectListItem item={item} navigation={navigation} />
+          <LessonListItem item={item} navigation={navigation} />
         )}
       />
     </Container>
