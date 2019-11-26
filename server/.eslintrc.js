@@ -22,9 +22,10 @@ module.exports = {
     "no-console": "off",
     "class-methods-use-this": "off",
     "no-param-reassign": "off",
-    // "camelcase": "off",
+    "import/order": ["error", {"newlines-between": "always-and-inside-groups"}],
     "import/no-unresolved": "off",
-    "no-unused-vars": ["error", { "aegsIgnorePattern": "next" }]
+    "camelcase": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
   },
   env: {
     "jest": true
