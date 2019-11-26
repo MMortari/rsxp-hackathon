@@ -1,8 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import Routes from './routes';
 
-// import { Container } from './styles';
+import 'react-native-gesture-handler';
 
 export default function App() {
-  return <View />;
+  return (
+    <>
+      <Routes />
+    </>
+  );
 }
