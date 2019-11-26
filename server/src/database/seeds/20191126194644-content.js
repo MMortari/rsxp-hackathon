@@ -1,7 +1,7 @@
 module.exports = {
   up: queryInterface => {
     return queryInterface.bulkInsert(
-      'content',
+      'contents',
       [
         {
           id: 1,
@@ -25,6 +25,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.bulkDelete('content', null, {});
+    return queryInterface.bulkDelete('contents', null, {});
   },
 };

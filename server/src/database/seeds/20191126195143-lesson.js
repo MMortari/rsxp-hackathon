@@ -1,7 +1,7 @@
 module.exports = {
   up: queryInterface => {
     return queryInterface.bulkInsert(
-      'lesson',
+      'lessons',
       [
         {
           name: 'O maior conflito militar de todos os tempos',
@@ -128,6 +128,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.bulkDelete('lesson', null, {});
+    return queryInterface.bulkDelete('lessons', null, {});
   },
 };

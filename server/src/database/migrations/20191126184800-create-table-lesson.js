@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('lesson', {
+    return queryInterface.createTable('lessons', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'content',
+          model: 'contents',
           key: 'id',
         },
         onUpdate: 'CASCADE',
@@ -36,6 +36,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable('lesson');
+    return queryInterface.dropTable('lessons');
   },
 };

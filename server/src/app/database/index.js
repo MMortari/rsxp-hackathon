@@ -2,15 +2,15 @@ import Sequelize from 'sequelize';
 
 import dbConfig from '../../config/database';
 
-import User from '../models/User';
-// import Address from '../models/Address';
-// import Tech from '../models/Tech';
+import Subject from '../models/Subject';
+import Content from '../models/Content';
+import Lesson from '../models/Lesson';
 
 const connection = new Sequelize(dbConfig);
 
-User.init(connection);
-// Address.init(connection);
-// Tech.init(connection);
+const models = [Subject, Content, Lesson];
+
+models.forEach(model => model.init(connection));
 
 // User.associate(connection.models);
 // Address.associate(connection.models);
