@@ -12,7 +12,7 @@ export default function Lesson({ navigation }) {
       console.log(navigation);
       setList(data);
     });
-  }, [navigation, navigation.state.params.id]);
+  }, [navigation]);
 
   return (
     <Container>
