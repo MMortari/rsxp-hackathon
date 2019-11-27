@@ -6,14 +6,13 @@ import LessonController from './app/controllers/LessonController';
 
 const routes = Router();
 
-// SUBJECTS
+// Lista todas as matérias
 routes.get('/subjects', SubjectController.list);
-routes.get('/subjects/:id', SubjectController.listOne);
-// CONTENTS
-routes.get('/contents', ContentController.list);
-routes.get('/contents/:id', ContentController.listOne);
-// LESSONS
-routes.get('/lessons', LessonController.list);
-routes.get('/lessons/:id', LessonController.listOne);
+// Lista todos os conteúdos da matéria
+routes.get('/subject/:subjectId/contents', ContentController.list);
+// Lista todas as lições dos conteúdos da matéria
+routes.get('/contents/:contentId/lessons', LessonController.list);
+// Lista todas uma lição dos conteúdos da matéria
+routes.get('/lessons/:Id', LessonController.listOne);
 
 export default routes;
