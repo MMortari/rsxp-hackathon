@@ -13,6 +13,6 @@ routes.get('/subjects/:subjectId/contents', ContentController.list);
 // Lista todas as lições dos conteúdos da matéria
 routes.get('/contents/:contentId/lessons', LessonController.list);
 // Lista todas uma lição dos conteúdos da matéria
-routes.get('/lessons/:Id', LessonController.listOne);
+routes.get('/lessons/:id', LessonController.listOne);
 
 export default routes;
