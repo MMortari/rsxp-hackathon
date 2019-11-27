@@ -8,7 +8,7 @@ export default function Lesson({ navigation }) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    mocky.get(`/lessons/${navigation.state.params.id}`).then(({ data }) => {
+    mocky.get(`contents/${navigation.state.params.content_id}/lessons/`).then(({ data }) => {
       console.log(navigation);
       setList(data);
     });
