@@ -3,13 +3,7 @@ import Subject from '../models/Subject';
 
 class ContentController {
   async list(req, res) {
-    const response = await Content.findAll();
-
-    return res.json(response);
-  }
-
-  async listOne(req, res) {
-    const { id } = req.params;
+    const id = req.params.subjectId;
 
     const hasSubject = await Subject.findByPk(id);
 
