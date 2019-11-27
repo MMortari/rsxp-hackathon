@@ -2,9 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 import { Button, TextBox, Title, Grade } from './styles';
 
-export default function LessonListItem({ item }) {
+export default function LessonListItem({ item, navigation }) {
   return (
-    <Button>
+    <Button onPress={() => navigation.navigate('Exercise')}>
       <TextBox>
         <Title>{item.name}</Title>
       </TextBox>

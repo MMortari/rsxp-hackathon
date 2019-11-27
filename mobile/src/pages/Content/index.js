@@ -12,7 +12,7 @@ function Content({ navigation }) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    mocky.get(`/contents/${navigation.state.params.id}`).then(({ data }) => {
+    mocky.get(`/subjects/${navigation.state.params.subject_id}/contents/`).then(({ data }) => {
       setList(data);
     });
   }, [navigation.state.params.id]);

@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Main from './pages/Main';
 import Content from './pages/Content';
 import Lesson from './pages/Lesson';
+import Exercise from './pages/Exercise';
 
 const Stack = createStackNavigator(
   {
@@ -30,6 +31,16 @@ const Stack = createStackNavigator(
       screen: Lesson,
       navigationOptions: {
         title: 'Lições',
+        headerTintColor: '#FFF',
+        headerStyle: {
+          backgroundColor: '#4F62FF',
+        },
+      },
+    },
+    Exercise: {
+      screen: Exercise,
+      navigationOptions: {
+        title: 'Exercícios',
         headerTintColor: '#FFF',
         headerStyle: {
           backgroundColor: '#4F62FF',
