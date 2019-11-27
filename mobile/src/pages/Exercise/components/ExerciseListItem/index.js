@@ -19,7 +19,7 @@ import {
   VerifyText,
 } from './styles';
 
-export default function ExerciseListItem({ navigation, lesson_id }) {
+export default function ExerciseListItem({ navigation }) {
   const [inputList, setInputList] = useState([
     {
       id: 1,
@@ -88,12 +88,20 @@ export default function ExerciseListItem({ navigation, lesson_id }) {
   const [verifyAnswers, setVerifyAnswers] = useState(false);
 
   function handleVerifyAnswers() {
+    console.log(navigation.getParam('lesson_id'));
     if (answers.answer1 === 1 && answers.answer2 === 2) {
-      mocky.put(`/lessons/${lesson_id}/status`).then(() => {
-        Alert.alert('Parabéns', 'Respostas corretas', [
-          { text: 'ok', onPress: () => navigation.pop() },
-        ]);
-      });
+      mocky
+        .put(`/lessons/${navigation.getParam('lesson_id')}/status`)
+        .then(() => {
+          Alert.alert('Parabéns', 'Respostas corretas', [
+            { text: 'ok', onPress: () => navigation.pop() },
+          ]);
+        })
+        .catch(() => {
+          Alert.alert('Parabéns', 'Respostas corretas', [
+            { text: 'ok', onPress: () => navigation.pop() },
+          ]);
+        });
     } else {
       Alert.alert('Ops', 'Você errou', [
         { text: 'ok', onPress: () => navigation.pop() },
