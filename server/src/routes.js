@@ -14,5 +14,7 @@ routes.get('/subjects/:subjectId/contents', ContentController.list);
 routes.get('/contents/:contentId/lessons', LessonController.list);
 // Lista todas uma lição dos conteúdos da matéria
 routes.get('/lessons/:id', LessonController.listOne);
+// Altera status da lesson
+routes.put('/lessons/:id/status', LessonController.updateStatus);
 
 export default routes;

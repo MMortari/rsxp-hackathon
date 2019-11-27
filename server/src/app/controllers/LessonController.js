@@ -10,7 +10,7 @@ class LessonController {
     if (!hasContent) return res.json({ msg: 'Conteúdo não existe' });
 
     const response = await Lesson.findAll({
-      attributes: ['id', 'name', 'content', 'content_id'],
+      attributes: ['id', 'name', 'content', 'done', 'content_id'],
       include: [{ association: 'answers' }],
       where: { content_id: id },
     });
@@ -24,6 +24,16 @@ class LessonController {
     });
 
     return res.json(response);
+  }
+
+  async updateStatus(req, res) {
+    const { id } = req.params;
+
+    const lesson = await Lesson.findByPk(id);
+
+    await lesson.update({ done: true });
+
+    return res.json({ lesson });
   }
 }
 

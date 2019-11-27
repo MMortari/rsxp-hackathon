@@ -20,6 +20,10 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
+      done: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       content: {
         type: Sequelize.TEXT,
         allowNull: false,

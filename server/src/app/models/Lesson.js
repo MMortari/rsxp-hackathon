@@ -7,6 +7,7 @@ class Lesson extends Model {
         name: DataTypes.STRING,
         content: DataTypes.STRING,
         content_id: DataTypes.STRING,
+        done: DataTypes.BOOLEAN,
         created_at: DataTypes.DATE,
         updated_at: DataTypes.DATE,
       },
