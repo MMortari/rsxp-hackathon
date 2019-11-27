@@ -16,6 +16,7 @@ class LessonController {
     if (!hasContent) return res.json({ msg: 'Conteúdo não existe' });
 
     const response = await Lesson.findAll({
+      include: [{ association: 'answers' }],
       where: { content_id: id },
     });
 

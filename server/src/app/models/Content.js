@@ -12,6 +12,8 @@ class Content extends Model {
       },
       { sequelize }
     );
+
+    return this;
   }
 }
 

@@ -1,12 +1,13 @@
 import { Model, DataTypes } from 'sequelize';
 
-class Lesson extends Model {
+class AnswerOption extends Model {
   static init(sequelize) {
     super.init(
       {
         name: DataTypes.STRING,
-        content: DataTypes.STRING,
-        content_id: DataTypes.STRING,
+        input_name: DataTypes.STRING,
+        correct: DataTypes.BOOLEAN,
+        lesson_id: DataTypes.STRING,
         created_at: DataTypes.DATE,
         updated_at: DataTypes.DATE,
       },
@@ -17,11 +18,11 @@ class Lesson extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.AnswerOption, {
+    this.belongsTo(models.Lesson, {
       foreignKey: 'lesson_id',
-      as: 'answers',
+      as: 'lesson',
     });
   }
 }
 
-export default Lesson;
+export default AnswerOption;

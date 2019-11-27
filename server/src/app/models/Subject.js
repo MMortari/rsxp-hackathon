@@ -11,6 +11,8 @@ class Subject extends Model {
       },
       { sequelize }
     );
+
+    return this;
   }
 }
 
