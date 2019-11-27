@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Alert } from 'react-native';
+import { mocky } from '../../../../services/mocky';
 
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -18,7 +19,7 @@ import {
   VerifyText,
 } from './styles';
 
-export default function ExerciseListItem({ navigation }) {
+export default function ExerciseListItem({ navigation, lesson_id }) {
   const [inputList, setInputList] = useState([
     {
       id: 1,
@@ -88,9 +89,11 @@ export default function ExerciseListItem({ navigation }) {
 
   function handleVerifyAnswers() {
     if (answers.answer1 === 1 && answers.answer2 === 2) {
-      Alert.alert('Parabéns', 'Respostas corretas', [
-        { text: 'ok', onPress: () => navigation.pop() },
-      ]);
+      mocky.put(`/lessons/${lesson_id}/status`).then(() => {
+        Alert.alert('Parabéns', 'Respostas corretas', [
+          { text: 'ok', onPress: () => navigation.pop() },
+        ]);
+      });
     } else {
       Alert.alert('Ops', 'Você errou', [
         { text: 'ok', onPress: () => navigation.pop() },

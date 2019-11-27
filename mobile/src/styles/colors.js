@@ -15,6 +15,7 @@ export default {
   darkTransparent: 'rgba(0, 0, 0, 0.2)',
   lightTransparent: 'rgba(255, 255, 255, 0.2)',
 
-  success: '#3EFF61',
+  alert: '#FFD636',
+  success: '#27E881',
   error: '#FF382E',
 };
