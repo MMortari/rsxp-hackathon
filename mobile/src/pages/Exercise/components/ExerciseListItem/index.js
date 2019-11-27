@@ -92,7 +92,9 @@ export default function ExerciseListItem({ navigation }) {
         { text: 'ok', onPress: () => navigation.pop() },
       ]);
     } else {
-      Alert.alert('Ops', 'Você errou');
+      Alert.alert('Ops', 'Você errou', [
+        { text: 'ok', onPress: () => navigation.pop() },
+      ]);
     }
   }
 
